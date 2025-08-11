@@ -35,10 +35,21 @@ function agregarAmigo() {
   } else {
     amigos.push(nombre);
     //para depuracion se muestra un console.log
-    console.log(amigos);
-    //mostrarLista();
+    //console.log(amigos);
+    mostrarLista();
   }
   // Limpiar
   input.value = "";
   input.focus();
+}
+
+// Función para mostrar la lista de amigos en pantalla
+function mostrarLista() {
+    let ul = document.getElementById("listaAmigos");
+    ul.innerHTML = "";
+    for (let i = 0; i < amigos.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = amigos[i];
+        ul.appendChild(li);
+    }
 }
