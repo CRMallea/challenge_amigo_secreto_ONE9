@@ -1,12 +1,21 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación.
 // Aquí deberás desarrollar la lógica para resolver el problema.
 let amigos = [];
+document.getElementById("btnAgregar").addEventListener("click", agregarAmigo);
 
+// Presionar Enter en el input
+document.getElementById("amigo").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        agregarAmigo();
+    }
+});
 //esta funcion se encarga de agregar un amigo a la lista
 function agregarAmigo() {
   document.getElementById("resultado").innerHTML = ""; // Borrar mensaje de resultado si existe
   let input = document.getElementById("amigo");
-  let nombre = input.value.trim();
+  let nombre =
+    input.value.trim().charAt(0).toUpperCase() +
+    input.value.trim().slice(1).toLowerCase(); // coloca el primer carácter en mayusculas y el resto en minúsculas
   // validacion del nombre
   if (nombre === "") {
     alert("Ingresa un nombre");
@@ -45,24 +54,27 @@ function agregarAmigo() {
 
 // Función para mostrar la lista de amigos en pantalla
 function mostrarLista() {
-    let ul = document.getElementById("listaAmigos");
-    ul.innerHTML = "";
-    for (let i = 0; i < amigos.length; i++) {
-        let li = document.createElement("li");
-        li.textContent = amigos[i];
-        ul.appendChild(li);
-    }
+  let ul = document.getElementById("listaAmigos");
+  ul.innerHTML = "";
+  for (let i = 0; i < amigos.length; i++) {
+    let li = document.createElement("li");
+    li.textContent = amigos[i];
+    ul.appendChild(li);
+  }
 }
 
 //funcion para sortear el amigo secreto
 function sortearAmigo() {
-    if (amigos.length === 0) {
-        alert("No hay amigos en la lista.");
-        return;
-    }
-    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
-    let amigoSeleccionado = amigos[indiceAleatorio];
-    // Mostrar el amigo seleccionado
-    document.getElementById("resultado").innerHTML = "El amigo seleccionado es: " + amigoSeleccionado; 
+  if (amigos.length === 0) {
+    alert("No hay amigos en la lista.");
+    return;
+  }
+  let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+  let amigoSeleccionado = amigos[indiceAleatorio];
+  // Mostrar el amigo seleccionado
+  document.getElementById("resultado").innerHTML =
+    "El amigo seleccionado es: " + amigoSeleccionado;
+  // Limpiar la lista de amigos después de sortear
+  amigos = [];
+  mostrarLista();
 }
-
