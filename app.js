@@ -4,11 +4,14 @@ let amigos = [];
 document.getElementById("btnAgregar").addEventListener("click", agregarAmigo);
 
 // Presionar Enter en el input
-document.getElementById("amigo").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        agregarAmigo();
-    }
+document.getElementById("amigo").addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    agregarAmigo();
+  }
 });
+document
+  .getElementById("btnReiniciar")
+  .addEventListener("click", ReiniciarJuego);
 //esta funcion se encarga de agregar un amigo a la lista
 function agregarAmigo() {
   document.getElementById("resultado").innerHTML = ""; // Borrar mensaje de resultado si existe
@@ -73,8 +76,15 @@ function sortearAmigo() {
   let amigoSeleccionado = amigos[indiceAleatorio];
   // Mostrar el amigo seleccionado
   document.getElementById("resultado").innerHTML =
-    "El amigo seleccionado es: " + amigoSeleccionado;
+    "Tu amigo secreto es: " + amigoSeleccionado;
   // Limpiar la lista de amigos después de sortear
   amigos = [];
   mostrarLista();
+}
+// funcion para reiniciar el juego
+function ReiniciarJuego(){
+    amigos = [];
+    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("listaAmigos").innerHTML = "";
+    input.value = "";
 }
