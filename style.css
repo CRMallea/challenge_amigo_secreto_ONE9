@@ -2,8 +2,10 @@
     --color-primary: #4B69FD;
     --color-secondary: #FFF9EB;
     --color-tertiary: #C4C4C4;
-    --color-button: #fe652b;
-    --color-button-hover: #e55720;
+    --color-button-primary: #fe652b;
+    --color-button-primary-hover: #e55720;
+    --color-button-secondary: #6299;
+    --color-button-secondary-hover: #62b;
     --color-text: #444444;
     --color-white: #FFFFFF;
 }
@@ -89,6 +91,9 @@ body {
 
 .button-container {
     width: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
 }
 
@@ -107,6 +112,7 @@ body {
 /* Estilos de botón */
 button {
     padding: 15px 30px;
+    margin: 1px;
     font-family: "Inter", sans-serif;
     font-size: 16px;
     border: 2px solid #000;
@@ -149,7 +155,7 @@ ul {
     width: 100%;
     padding: 10px 40px;
     color: var(--color-white);
-    background-color: var(--color-button);
+    background-color: var(--color-button-primary);
     font-size: 16px;
 }
 
@@ -158,5 +164,18 @@ ul {
 }
 
 .button-draw:hover {
-    background-color: var(--color-button-hover);
+    background-color: var(--color-button-primary-hover);
+}
+
+.button-draw-secondary {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 40px;
+    color: var(--color-white);
+    background-color: var(--color-button-secondary);
+    font-size: 16px;
+}
+.button-draw-secondary:hover{
+    background-color: var(--color-button-secondary-hover);
 }

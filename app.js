@@ -81,7 +81,7 @@ function sortearAmigo() {
   amigos = [];
   mostrarLista();
 }
-// funcion para reiniciar el juego
+// funcion para reiniciar el juego sin salir de la pantalla
 function ReiniciarJuego(){
     amigos = [];
     document.getElementById("resultado").innerHTML = "";
